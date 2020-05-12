@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8lf-RZ-fvB">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DrawingPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNm-l2-dLm" customClass="PKCanvasView">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lNm-l2-dLm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8mI-Hn-Cft"/>
+                            <constraint firstAttribute="trailing" secondItem="lNm-l2-dLm" secondAttribute="trailing" id="IiK-DD-oS7"/>
+                            <constraint firstItem="lNm-l2-dLm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="QJQ-Nw-TC9"/>
+                            <constraint firstAttribute="bottom" secondItem="lNm-l2-dLm" secondAttribute="bottom" id="iUk-Vy-eIu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bg4-qW-sxr">
+                        <leftBarButtonItems>
+                            <barButtonItem title="redo" image="arrow.uturn.right" catalog="system" id="aRj-Aw-AXc">
+                                <connections>
+                                    <action selector="redo:" destination="dkx-z0-nzr" id="PlA-Jd-gCL"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="undo" image="arrow.uturn.left" catalog="system" id="2iW-W3-B09">
+                                <connections>
+                                    <action selector="undo:" destination="dkx-z0-nzr" id="tk6-tP-xpa"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Clear" id="dpb-GH-hyb">
+                                <connections>
+                                    <action selector="clearTapped:" destination="BYZ-38-t0r" id="GMx-Jb-Vbn"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Snap" id="qGt-mC-Hry">
+                                <connections>
+                                    <action selector="snapTapped:" destination="BYZ-38-t0r" id="CtX-MY-TQj"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="drawingCanvas" destination="lNm-l2-dLm" id="Xhz-7b-SdE"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="852" y="115"/>
+        </scene>
+        <!--Snaped View Controller-->
+        <scene sceneID="yf4-dY-4US">
+            <objects>
+                <viewController storyboardIdentifier="SnapedViewController" id="VdP-Jo-Aya" customClass="SnapedViewController" customModule="DrawingPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tVP-pl-F1r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5ZY-VF-9ym">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c33-MV-Afu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="Wmb-xa-i1T">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="ewG-b8-Sjy">
+                                            <connections>
+                                                <action selector="doneTapped:" destination="VdP-Jo-Aya" id="Z7O-pE-k8G"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Share" image="square.and.arrow.up" catalog="system" id="HJh-7y-yhw">
+                                            <connections>
+                                                <action selector="shareTapped:" destination="VdP-Jo-Aya" id="GCt-0f-Yvr"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5ZY-VF-9ym" firstAttribute="bottom" secondItem="rTU-Q0-l1E" secondAttribute="bottom" id="9or-Xc-aHb"/>
+                            <constraint firstItem="c33-MV-Afu" firstAttribute="leading" secondItem="rTU-Q0-l1E" secondAttribute="leading" id="Bax-hY-3oE"/>
+                            <constraint firstItem="5ZY-VF-9ym" firstAttribute="trailing" secondItem="rTU-Q0-l1E" secondAttribute="trailing" id="NuG-ru-ekW"/>
+                            <constraint firstItem="c33-MV-Afu" firstAttribute="trailing" secondItem="rTU-Q0-l1E" secondAttribute="trailing" id="WlR-k7-UkG"/>
+                            <constraint firstItem="c33-MV-Afu" firstAttribute="top" secondItem="rTU-Q0-l1E" secondAttribute="top" id="aXU-oE-ZJV"/>
+                            <constraint firstItem="5ZY-VF-9ym" firstAttribute="top" secondItem="c33-MV-Afu" secondAttribute="bottom" id="kXN-Nl-WXU"/>
+                            <constraint firstItem="5ZY-VF-9ym" firstAttribute="leading" secondItem="rTU-Q0-l1E" secondAttribute="leading" id="rpF-bl-fAF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rTU-Q0-l1E"/>
+                    </view>
+                    <connections>
+                        <outlet property="snapedImage" destination="5ZY-VF-9ym" id="0GM-r2-sNs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NvN-LD-V6Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1541.5999999999999" y="114.69265367316342"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dWC-aE-vZY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8lf-RZ-fvB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BAg-M8-sI1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wg2-gV-O4d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KcE-Fb-fkW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="114.69265367316342"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.uturn.left" catalog="system" width="128" height="112"/>
+        <image name="arrow.uturn.right" catalog="system" width="128" height="112"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+    </resources>
+</document>
